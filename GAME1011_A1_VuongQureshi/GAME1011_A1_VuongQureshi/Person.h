@@ -3,30 +3,28 @@
 #define __PERSON__
 #include <string>
 
-class Person
+class Person final
 {
-private:                      //Private Variables
-	int age;                  //Age
-	std::string fullName;     //Full Name 
+private:
+	int age;              //Holds the age of the person
+	std::string name;     //Holds the name of the person
 
 public:
-	//Constructor for age
-	Person (int age){
-		this->age = age;
-	}
+	Person();
+	Person(const std::string name, int age);
+	virtual ~Person();
+	virtual void DisplayInformation();
 	
-	//Constructor for name
-	Person (std::string name){
-		this->Name = name;
-	}
-
 	//Setters
 	void setAge(int age);
-	void setName(std::string name);
+	void setName(const std::string name);
 
 	//Getters
-	int getAge();
-	std::string getName();
+	int getAge() const;
+	std::string getName() const;
 
+	//Peron Properties
+	std::string m_name;
+	int m_age;
 };
 #endif
